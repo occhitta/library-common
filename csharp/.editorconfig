@@ -1,0 +1,21 @@
+# ====================================================================
+# テキストエディタ設定
+# ====================================================================
+# 参照設定
+root = true
+
+# 基本設定
+[*]
+indent_style = space
+indent_size  = 2
+charset      = UTF-8
+trim_trailing_whitespace = true
+insert_final_newline     = true
+
+# 構文設定
+[*.cs]
+indent_style = tab
+indent_size  = 4
+
+# Default severity for analyzer diagnostics with category 'Style'
+dotnet_analyzer_diagnostic.category-Style.severity = silent

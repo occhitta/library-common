@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <!-- ============================================================= -->
+  <!-- プロジェクト基本設定                                          -->
+  <!-- ============================================================= -->
+  <PropertyGroup>
+    <!-- 出力名称：アセンブリ名 -->
+    <AssemblyName>Occhitta.Libraries.Common</AssemblyName>
+    <!-- 対応番号：動作可能番号 -->
+    <TargetFramework>net8.0</TargetFramework>
+    <VersionPrefix>1.0.0</VersionPrefix>
+    <!-- 公開内容：利用開示属性 -->
+    <PackageId>Occhitta.Libraries.Common</PackageId>
+    <Title>Occhitta Common Library</Title>
+    <Description>共通ライブラリ</Description>
+    <PackageProjectUrl>https://github.com/occhitta/library-common</PackageProjectUrl>
+    <Authors>Occhitta</Authors>
+    <Copyright>None.</Copyright>
+    <!-- 参照文章：文章出力可否 -->
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
+    <!-- 開発規則：開発構文規則 -->
+    <ImplicitUsings>disable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <!-- ============================================================= -->
+  <!-- プロジェクト参照設定                                          -->
+  <!-- ============================================================= -->
+
+  <!-- ============================================================= -->
+  <!-- プロジェクト拡張設定                                          -->
+  <!-- ============================================================= -->
+
+  <!-- ============================================================= -->
+  <!-- プロジェクト公開設定                                          -->
+  <!-- ============================================================= -->
+</Project>

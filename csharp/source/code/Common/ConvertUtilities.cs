@@ -1,31 +1,44 @@
 namespace Occhitta.Libraries.Common;
 
 /// <summary>
-/// 変換共通関数クラスです。
+/// 文字変換関数クラスです。
 /// </summary>
 public static class ConvertUtilities {
+	#region 公開メソッド定義:ToData
+	/// <summary>
+	/// <paramref name="resultData" />へ変換します。
+	/// </summary>
+	/// <param name="sourceData">文字情報</param>
+	/// <param name="resultData">変換情報</param>
+	/// <param name="actionCode">変換処理</param>
+	/// <typeparam name="TValue">変換種別</typeparam>
+	/// <returns><paramref name="sourceData" />を<paramref name="resultData" />に変換に成功した場合、<c>True</c>を返却</returns>
+	public static bool ToData<TValue>(string sourceData, [MaybeNullWhen(false)]out TValue resultData, ConvertProcessor<TValue> actionCode) =>
+		actionCode(sourceData, out resultData);
+	#endregion 公開メソッド定義:ToData
+
 	#region 公開メソッド定義:ToFlag
 	/// <summary>
-	/// 真偽情報へ変換します。
+	/// <paramref name="resultData" />へ変換します。
 	/// </summary>
-	/// <param name="sourceText">判定情報</param>
+	/// <param name="sourceData">文字情報</param>
 	/// <param name="resultData">真偽情報</param>
-	/// <returns><paramref name="sourceText" />が真偽情報である場合、<c>True</c>を返却</returns>
-	public static bool ToFlag(string sourceText, out bool resultData) {
-		if (sourceText == "0") {
+	/// <returns><paramref name="sourceData" />を<paramref name="resultData" />に変換が成功した場合、<c>True</c>を返却</returns>
+	public static bool ToFlag(string sourceData, out bool resultData) {
+		if (sourceData == "0") {
 			resultData = false;
 			return true;
-		} else if (sourceText == "1") {
+		} else if (sourceData == "1") {
 			resultData = true;
-			return false;
-		} else if (String.Equals(sourceText, "FALSE", StringComparison.OrdinalIgnoreCase)
-		        || String.Equals(sourceText, "NO",    StringComparison.OrdinalIgnoreCase)
-		        || String.Equals(sourceText, "OFF",   StringComparison.OrdinalIgnoreCase)) {
+			return true;
+		} else if (String.Equals(sourceData, "FALSE", StringComparison.OrdinalIgnoreCase)
+		        || String.Equals(sourceData, "NO",    StringComparison.OrdinalIgnoreCase)
+		        || String.Equals(sourceData, "OFF",   StringComparison.OrdinalIgnoreCase)) {
 			resultData = false;
 			return true;
-		} else if (String.Equals(sourceText, "TRUE",  StringComparison.OrdinalIgnoreCase)
-		        || String.Equals(sourceText, "YES",   StringComparison.OrdinalIgnoreCase)
-		        || String.Equals(sourceText, "ON",    StringComparison.OrdinalIgnoreCase)) {
+		} else if (String.Equals(sourceData, "TRUE",  StringComparison.OrdinalIgnoreCase)
+		        || String.Equals(sourceData, "YES",   StringComparison.OrdinalIgnoreCase)
+		        || String.Equals(sourceData, "ON",    StringComparison.OrdinalIgnoreCase)) {
 			resultData = false;
 			return true;
 		} else {
@@ -37,12 +50,12 @@ public static class ConvertUtilities {
 
 	#region 公開メソッド定義:ToInt4
 	/// <summary>
-	/// 整数情報へ変換します。
+	/// <paramref name="resultData" />へ変換します。
 	/// </summary>
-	/// <param name="sourceText">判定情報</param>
+	/// <param name="sourceData">文字情報</param>
 	/// <param name="resultData">真偽情報</param>
-	/// <returns><paramref name="sourceText" />が整数情報である場合、<c>True</c>を返却</returns>
-	public static bool ToInt4(string sourceText, out int resultData) =>
-		Int32.TryParse(sourceText, out resultData);
+	/// <returns><paramref name="sourceData" />を<paramref name="resultData" />に変換が成功した場合、<c>True</c>を返却</returns>
+	public static bool ToInt4(string sourceData, out int resultData) =>
+		Int32.TryParse(sourceData, out resultData);
 	#endregion 公開メソッド定義:ToInt4
 }
